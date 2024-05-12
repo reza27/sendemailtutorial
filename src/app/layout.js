@@ -13,21 +13,21 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <nav>
-          <div className="flex items-center uppercase text-sm">
+          <div className="flex items-center uppercase text-sm lg:px-32 px-5">
             {" "}
-            <img src="/tayibah-logo.jpg" className="w-52" />
-            <div className="ml-auto flex mr-10">
-              <a className="pr-5 cursor-pointer hover:text-black" href="#about">
+            <img src="/tayibah-logo.jpg" className="w-52 relative -left-11" />
+            <div className="ml-auto flex">
+              <a className="pl-5 cursor-pointer hover:text-black" href="#about">
                 About
               </a>
               <a
-                className="pr-5 cursor-pointer hover:text-black"
+                className="pl-5 cursor-pointer hover:text-black"
                 href="#gallery"
               >
                 Gallery
               </a>
               <a
-                className="pr-5 cursor-pointe hover:text-black"
+                className="pl-5 cursor-pointer hover:text-black"
                 href="#contact"
               >
                 Contact
@@ -36,8 +36,11 @@ export default function RootLayout({ children }) {
           </div>
         </nav>
         {children}
-        <footer className="w-full bg-gray-200">
-          <p className="p-20 uppercase text-sm">Tayibah farms 2024</p>
+        <footer className="w-full bg-gray-200 text-center">
+          <p className="pt-20 uppercase text-sm">#Tayibahfarms</p>
+          <p className="p-2 pb-24 text-center text-sm text-gray-400">
+            &#169; 2024
+          </p>
         </footer>
       </body>
     </html>
