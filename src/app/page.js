@@ -28,7 +28,7 @@ export default function Home() {
   };
   return (
     <main className="flex min-h-screen flex-col items-center justify-center lg:px-32 px-5">
-      <div id="about" className="pt-16">
+      <div id="about" className="pt-32 md:pt-24">
         <h2 className="text-2xl">About us</h2>
         <p className="py-6 text-sm ">
           Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -52,7 +52,7 @@ export default function Home() {
           >
             {images.map((image, index) => (
               <div
-                className="h-[500px] w-full bg-cover"
+                className="h-[600px] w-full bg-cover"
                 key={"image" + index}
                 style={{
                   backgroundImage: "url(" + image + ")",
@@ -62,13 +62,12 @@ export default function Home() {
             ))}
           </div>
           <div
-            className="w-12 h-12  bg-[#333] absolute top-0 bottom-0 left-1 m-auto z-50 cursor-pointer hover:bg-black rounded-full"
+            className="w-12 h-12  bg-[#333] absolute top-0 bottom-0 left-1 m-auto z-10 cursor-pointer hover:bg-black rounded-full"
             onClick={() => {
-              if (Math.abs(currentSlideIndex.current) < images.length - 1) {
-                currentSlideIndex.current = currentSlideIndex.current - 1;
-                slider.current.style.left =
-                  100 * currentSlideIndex.current + "%";
+              if (currentSlideIndex.current < 0) {
+                currentSlideIndex.current = currentSlideIndex.current + 1;
               }
+              slider.current.style.left = 100 * currentSlideIndex.current + "%";
             }}
           >
             <svg
@@ -80,12 +79,13 @@ export default function Home() {
             </svg>
           </div>
           <div
-            className="w-12 h-12 bg-[#333] absolute top-0 bottom-0 m-auto right-1 z-50 cursor-pointer  hover:bg-black rounded-full"
+            className="w-12 h-12 bg-[#333] absolute top-0 bottom-0 m-auto right-1 z-10 cursor-pointer  hover:bg-black rounded-full"
             onClick={() => {
-              if (currentSlideIndex.current < 0) {
-                currentSlideIndex.current = currentSlideIndex.current + 1;
+              if (Math.abs(currentSlideIndex.current) < images.length - 1) {
+                currentSlideIndex.current = currentSlideIndex.current - 1;
+                slider.current.style.left =
+                  100 * currentSlideIndex.current + "%";
               }
-              slider.current.style.left = 100 * currentSlideIndex.current + "%";
             }}
           >
             {" "}

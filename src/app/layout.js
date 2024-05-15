@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
+import MobileMenu from "./mobile-menu";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,9 +15,11 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <nav>
           <div className="flex items-center uppercase text-sm lg:px-32 px-5">
-            {" "}
-            <img src="/tayibah-logo.jpg" className="w-52 relative -left-11" />
-            <div className="ml-auto flex">
+            <img
+              src="/tayibah-logo.jpg"
+              className="w-52 hidden md:block relative -left-10"
+            />
+            <div className="ml-auto hidden md:flex">
               <a className="pl-5 cursor-pointer hover:text-black" href="#about">
                 About
               </a>
@@ -34,6 +37,27 @@ export default function RootLayout({ children }) {
               </a>
             </div>
           </div>
+          {/*
+            <a
+              className="pl-5 cursor-pointer hover:text-black h-20 flex items-center"
+              href="#about"
+            >
+              About
+            </a>
+            <a
+              className="pl-5 cursor-pointer hover:text-black h-20  flex items-center"
+              href="#gallery"
+            >
+              Gallery
+            </a>
+            <a
+              className="pl-5 cursor-pointer hover:text-black h-20  flex items-center"
+              href="#contact"
+            >
+              Contact
+            </a>
+          </div> */}
+          <MobileMenu />
         </nav>
         {children}
         <footer className="w-full bg-gray-200 text-center">
